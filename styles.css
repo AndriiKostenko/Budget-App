@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 350px;
+    background-color: purple;
+}
+
+.app-title{
+    width: 100%;
+    color: #fff;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.app-header {
+    width: 100%;;
+    height: auto;
+}
+
+.balance{
+    font-size: 26px;
+    color: #fff;
+    margin-top: 30px;
+    margin-left: 50px;
+
+}
