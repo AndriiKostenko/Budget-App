@@ -8,12 +8,13 @@
 </head>
 <body>
     <div class="app-container">
-        <div class="app-title"> 
-            <h3><span class="bold">MyBudget</span> App</h3>
-        </div>
+       
         <header class="app-header">
+            <div class="app-title"> 
+                <h3><span class="bold">MyBudget</span> App</h3>
+            </div>
             <div class="balance">Balance</div>
-            <div class="value"></div>
+            <div class="value">$3000</div>
             <div class="account">
                 <div class="account-block">
                     <div class="income">Income</div>
@@ -27,6 +28,36 @@
                 </div>
             </div>
         </header>
+        <div class="dushboard">
+            <div class="dush-title">Dushboard</div>
+            <div class="dush-tabs">
+                <div class="tab tab-1">Expencess</div>
+                <div class="tab tab-2 current-tub">Income</div>
+                <div class="tab tab-3">All</div>                
+            </div>
+            <div class="hide" id="expencess"></div>
+            <div id="income">
+                <ul class="list">
+                    <li class="income" id="0">
+                        <div class="entry">Salary: $ 1200</div>
+                        <div class="icons-block">
+                            <div id="edit"><img class="icon" src="/icons/edit-icon.png"> </div>
+                            <div id="delete"><img class="icon" src="/icons/delete-icon.png"> </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="input">
+                    <input type="text" id="income-title-input" name="title" placeholder="Title">
+                    <input type="number" id="income-amount-input" name="title" placeholder="$0">
+                    <div class="add-income">
+                        <img class="icon" src="/icons/add-icon.png"/>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="hide" id="all"></div>
+
+        </div>
 
 
     </div>
