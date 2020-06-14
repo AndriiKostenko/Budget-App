@@ -1,7 +1,9 @@
-*{
+*, ul, li {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+
 }
 
 body{
@@ -13,9 +15,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 500px;
-    height: 350px;
-    background-color: purple;
+    width: 400px;
 }
 
 .app-title{
@@ -29,6 +29,8 @@ body{
 .app-header {
     width: 100%;;
     height: auto;
+    height: 250px;
+    background-color: purple;
 }
 
 .balance{
@@ -36,5 +38,110 @@ body{
     color: #fff;
     margin-top: 30px;
     margin-left: 50px;
+}
 
+.value{
+    font-size: 24px;
+    color: #fff;
+    margin-left: 50px;
+    margin-bottom: 30px;
+
+}
+
+.account{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.account-block{
+color: #fff;
+font-size: 18px;
+}
+
+.dushboard{
+width: 100%;
+height: 500px;
+border: 1px solid black;
+border-radius: 20px;
+position: relative;
+top: -20px;
+background-color: #fff;
+color: rgb(70, 68, 68);
+padding: 10px 20px;
+
+}
+
+.dush-title{
+    font-size: 26px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+
+.dush-tabs{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+
+
+.tab {
+    cursor: pointer;
+}
+
+.current-tub {
+    color: purple;
+    font-weight: 600;
+}
+
+
+#income{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.list{
+    font-size: 20px;
+    color: purple;
+   
+}
+
+.income{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon{
+    width: 25px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.icons-block {
+    width: auto;
+    display: flex;
+}
+
+.input{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+}
+
+input[name="title"]{
+    border: 2px solid purple;
+    height: 30px;
+    width: 160px;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: rgb(70, 68, 68);
 }
