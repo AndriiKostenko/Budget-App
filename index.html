@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="app-container">
-       
+
         <header class="app-header">
-            <div class="app-title"> 
+            <div class="app-title">
                 <h3><span class="bold">MyBudget</span> App</h3>
             </div>
             <div class="balance">Balance</div>
@@ -33,16 +35,16 @@
             <div class="dush-tabs">
                 <div class="tab tab-1">Expencess</div>
                 <div class="tab tab-2 active">Income</div>
-                <div class="tab tab-3">All</div>                
+                <div class="tab tab-3">All</div>
             </div>
             <div class="hide" id="expencess">
                 <div class="input">
-                    <input type="text" id="epense-title-input" name="title" placeholder="Title">
+                    <input type="text" id="expense-title-input" name="title" placeholder="Title">
                     <input type="number" id="expense-amount-input" name="title" placeholder="$0">
                     <div class="add-expense">
-                        <img class="icon" src="/icons/add-icon.png"/>
+                        <img class="icon" src="/icons/add-icon.png" />
                     </div>
-                    
+
                 </div>
             </div>
             <div id="income" class="show">
@@ -59,9 +61,9 @@
                     <input type="text" id="income-title-input" name="title" placeholder="Title">
                     <input type="number" id="income-amount-input" name="title" placeholder="$0">
                     <div class="add-income">
-                        <img class="icon" src="/icons/add-icon.png"/>
+                        <img class="icon" src="/icons/add-icon.png" />
                     </div>
-                    
+
                 </div>
             </div>
             <div class="hide" id="all"></div>
@@ -72,4 +74,5 @@
     </div>
     <script src="/script.js"></script>
 </body>
+
 </html>
