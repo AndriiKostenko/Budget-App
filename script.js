@@ -41,12 +41,12 @@ function hide(elementsArray) {
     })
 }
 
-function show(element){
+function show(element) {
     element.classList.remove('hide')
 }
 
 
-expencessBtn.addEventListener('click', function(){
+expencessBtn.addEventListener('click', function () {
     active(expencessBtn);
     nonActive([incomeBtn, allBtn])
     hide([incomeEl, allEl]);
@@ -54,19 +54,55 @@ expencessBtn.addEventListener('click', function(){
 
 })
 
-incomeBtn.addEventListener('click', function(){
+incomeBtn.addEventListener('click', function () {
     active(incomeBtn);
     nonActive([expencessBtn, allBtn]);
     show(incomeEl)
     hide([expenseEl, allEl])
 })
 
-allBtn.addEventListener('click', function(){
+allBtn.addEventListener('click', function () {
     active(allBtn);
     nonActive([expencessBtn, incomeBtn]);
     show(allEl);
     hide([expenseEl, incomeEl])
 })
 
+let ENTRY_LIST = [];
 
+function clearInputs(inputsArr) {
+    inputsArr.forEach(input => input.value = '')
+}
 
+addIncome.addEventListener('click', function () {
+
+    if (!incomeTitle.value || !incomeAmount.value) return
+
+    let income = {
+        type: 'income',
+        title: incomeTitle.value,
+        amount: parseFloat(incomeAmount.value),
+    }
+
+    ENTRY_LIST.push(income);
+    console.log(ENTRY_LIST);
+
+    clearInputs([incomeTitle, incomeAmount])
+})
+
+addExpense.addEventListener('click', function () {
+
+    if (!expenseTitle.value || !expenseAmount.value) return
+
+    let expense = {
+        type: 'expense',
+        title: expenseTitle.value,
+        amount: parseFloat(expenseAmount.value)
+    }
+
+    ENTRY_LIST.push(expense);
+    console.log(ENTRY_LIST);
+
+    clearInputs([expenseTitle, expenseAmount])
+
+})
