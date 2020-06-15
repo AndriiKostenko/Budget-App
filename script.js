@@ -23,3 +23,50 @@ const addIncome = document.querySelector('.add-income');
 const expenseTitle = document.querySelector('#expense-title-input');
 const expenseAmount = document.querySelector('#expense-amount-input');
 const addExpense = document.querySelector('.add-expense');
+
+
+function active(element) {
+    element.classList.add('active')
+}
+
+function nonActive(elementsArray) {
+    elementsArray.forEach(element => {
+        element.classList.remove('active')
+    });
+}
+
+function hide(elementsArray) {
+    elementsArray.forEach(element => {
+        element.classList.add('hide')
+    })
+}
+
+function show(element){
+    element.classList.remove('hide')
+}
+
+
+expencessBtn.addEventListener('click', function(){
+    active(expencessBtn);
+    nonActive([incomeBtn, allBtn])
+    hide([incomeEl, allEl]);
+    show(expenseEl)
+
+})
+
+incomeBtn.addEventListener('click', function(){
+    active(incomeBtn);
+    nonActive([expencessBtn, allBtn]);
+    show(incomeEl)
+    hide([expenseEl, allEl])
+})
+
+allBtn.addEventListener('click', function(){
+    active(allBtn);
+    nonActive([expencessBtn, incomeBtn]);
+    show(allEl);
+    hide([expenseEl, incomeEl])
+})
+
+
+
