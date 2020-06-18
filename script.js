@@ -106,3 +106,27 @@ addExpense.addEventListener('click', function () {
     clearInputs([expenseTitle, expenseAmount])
 
 })
+
+
+function calculateTotal(type, ENTRY_LIST){
+
+    let sum = 0;
+
+    ENTRY_LIST.forEach(element => {
+        if (element.type === type) {
+            sum+= element.amount
+        }    
+    })
+
+    return sum
+}
+
+
+function calculateBalance(income, outcome) {
+    return income - outcome
+}
+
+
+let income = calculateTotal(income, ENTRY_LIST);
+let outcome = calculateTotal(expense, ENTRY_LIST);
+let balance = calculateBalance(income, outcome);
