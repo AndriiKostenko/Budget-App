@@ -112,21 +112,47 @@ body {
 
 }
 
+
+.list li {
+    position: relative;
+    margin-bottom: 15px;
+}
+
 .income, .expense {
     display: flex;
     justify-content: space-between;
 }
 
 .icon {
-    width: 25px;
-    cursor: pointer;
-    margin: 0 5px;
+    width: 30px;
 }
 
-.icons-block {
-    width: auto;
-    display: flex;
+#edit {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-image: url("/icons/edit-icon.png");
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 30px;
+
 }
+
+#delete {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-image: url("/icons/delete-icon.png");
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
 
 .input {
     width: 100%;

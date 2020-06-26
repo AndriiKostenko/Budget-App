@@ -109,7 +109,6 @@ addExpense.addEventListener('click', function () {
 
 })
 
-
 function calculateTotal(type, ENTRY_LIST) {
 
     let sum = 0;
@@ -150,19 +149,14 @@ function updateUi() {
         } else if (entry.type === 'expense') {
             showEntry(expenseList, entry.type, entry.title, entry.amount, index);
         }
-            showEntry(allList, entry.type, entry.title, entry.amount, index);
-        
+        showEntry(allList, entry.type, entry.title, entry.amount, index);
 
     })
-
-
-
-
 }
 
-function clearElement(elements){
+function clearElement(elements) {
     elements.forEach(element => {
-            element.innerHTML = '';
+        element.innerHTML = '';
 
     })
 }
@@ -171,20 +165,57 @@ function clearElement(elements){
 function showEntry(list, type, title, amount, id) {
 
 
-    const entry = 
-        `
-            <li class="${type}" id="${id}">
-                <div class="entry">${title}: $ ${amount}</div>
-                <div class="icons-block">
-                    <div id="edit"><img class="icon" src="/icons/edit-icon.png"> </div>
-                    <div id="delete"><img class="icon" src="/icons/delete-icon.png"> </div>
-                </div>
-            </li>
-        `
-
+    const entry =
+        `<li class="${type}" id="${id}">
+            <div class="entry">${title}: $${amount}</div>
+            <div id="edit"></div>
+            <div id="delete"></div>
+         <li>`
 
     const position = "afterbegin";
 
 
     list.insertAdjacentHTML(position, entry)
+}
+
+
+incomeList.addEventListener('click', deleteOrEdit);
+expenseList.addEventListener('click', deleteOrEdit);
+allList.addEventListener('click', deleteOrEdit);
+
+function deleteOrEdit(e) {
+
+    let targetBtn = e.target;
+    let ENTRY = targetBtn.parentNode;
+
+    if (targetBtn.id === "edit") {
+        editEntry(ENTRY)
+    } else if (targetBtn.id === "delete") {
+        deleteEntry(ENTRY);
+        updateUi()
+    }
+
+}
+
+
+function deleteEntry(ENTRY) {
+    ENTRY_LIST.splice(ENTRY.id, 1)
+}
+
+function editEntry(ENTRY) {
+
+    if (ENTRY.className === 'income') {
+        incomeTitle.value = ENTRY_LIST[ENTRY.id].title;
+        incomeAmount.value = ENTRY_LIST[ENTRY.id].amount;
+        updateUi()
+        deleteEntry(ENTRY)
+    } else if (ENTRY.className === 'expense') {
+        expenseTitle.value = ENTRY_LIST[ENTRY.id].title;
+        expenseAmount.value = ENTRY_LIST[ENTRY.id].amount;
+        updateUi()
+        deleteEntry(ENTRY)
+    } else {
+        return
+    }
+
 }
