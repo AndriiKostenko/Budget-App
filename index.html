@@ -16,7 +16,7 @@
                 <h3><span class="bold">MyBudget</span> App</h3>
             </div>
             <div class="balance">Balance</div>
-            <div class="value">$3000</div>
+            <div class="value"></div>
             <div class="account">
                 <div class="account-block">
                     <div class="income">Income</div>
@@ -37,7 +37,9 @@
                 <div class="tab tab-2 active">Income</div>
                 <div class="tab tab-3">All</div>
             </div>
-            <div class="hide" id="expencess">
+            <div  id="expencess" class="hide">
+                <ul class="list">
+                </ul>
                 <div class="input">
                     <input type="text" id="expense-title-input" name="title" placeholder="Title">
                     <input type="number" id="expense-amount-input" name="title" placeholder="$0">
@@ -49,13 +51,6 @@
             </div>
             <div id="income" class="show">
                 <ul class="list">
-                    <li class="income active" id="0">
-                        <div class="entry">Salary: $ 1200</div>
-                        <div class="icons-block">
-                            <div id="edit"><img class="icon" src="/icons/edit-icon.png"> </div>
-                            <div id="delete"><img class="icon" src="/icons/delete-icon.png"> </div>
-                        </div>
-                    </li>
                 </ul>
                 <div class="input">
                     <input type="text" id="income-title-input" name="title" placeholder="Title">
@@ -66,7 +61,10 @@
 
                 </div>
             </div>
-            <div class="hide" id="all"></div>
+            <div class="hide" id="all">
+                <ul class="list">
+                </ul>
+            </div>
 
         </div>
 
