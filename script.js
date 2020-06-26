@@ -1,6 +1,6 @@
 //select elements
 
-const balance = document.querySelector('.value');
+const balanceValue = document.querySelector('.value');
 const incomeTotal = document.querySelector('.income-total');
 const outcomeTotal = document.querySelector('.outcome-total');
 
@@ -87,7 +87,8 @@ addIncome.addEventListener('click', function () {
     ENTRY_LIST.push(income);
     console.log(ENTRY_LIST);
 
-    clearInputs([incomeTitle, incomeAmount])
+    clearInputs([incomeTitle, incomeAmount]);
+    updateUi()
 })
 
 addExpense.addEventListener('click', function () {
@@ -103,19 +104,20 @@ addExpense.addEventListener('click', function () {
     ENTRY_LIST.push(expense);
     console.log(ENTRY_LIST);
 
-    clearInputs([expenseTitle, expenseAmount])
+    clearInputs([expenseTitle, expenseAmount]);
+    updateUi()
 
 })
 
 
-function calculateTotal(type, ENTRY_LIST){
+function calculateTotal(type, ENTRY_LIST) {
 
     let sum = 0;
 
     ENTRY_LIST.forEach(element => {
         if (element.type === type) {
-            sum+= element.amount
-        }    
+            sum += element.amount
+        }
     })
 
     return sum
@@ -126,7 +128,63 @@ function calculateBalance(income, outcome) {
     return income - outcome
 }
 
+function updateUi() {
 
-let income = calculateTotal(income, ENTRY_LIST);
-let outcome = calculateTotal(expense, ENTRY_LIST);
-let balance = calculateBalance(income, outcome);
+    let income = calculateTotal("income", ENTRY_LIST);
+    let outcome = calculateTotal("expense", ENTRY_LIST);
+    let balance = Math.abs(calculateBalance(income, outcome));
+    const sign = (outcome > income) ? "-$" : "$";
+
+    incomeTotal.innerHTML = `<small>$</small>${income}`;
+    outcomeTotal.innerHTML = `<small>$</small>${outcome}`;;
+    balanceValue.innerHTML = `${sign}${balance}`;
+
+    clearElement([incomeList, expenseList, allList]);
+
+
+    ENTRY_LIST.forEach((entry, index) => {
+
+
+        if (entry.type === 'income') {
+            showEntry(incomeList, entry.type, entry.title, entry.amount, index);
+        } else if (entry.type === 'expense') {
+            showEntry(expenseList, entry.type, entry.title, entry.amount, index);
+        }
+            showEntry(allList, entry.type, entry.title, entry.amount, index);
+        
+
+    })
+
+
+
+
+}
+
+function clearElement(elements){
+    elements.forEach(element => {
+            element.innerHTML = '';
+
+    })
+}
+
+
+function showEntry(list, type, title, amount, id) {
+
+
+    const entry = 
+        `
+            <li class="${type}" id="${id}">
+                <div class="entry">${title}: $ ${amount}</div>
+                <div class="icons-block">
+                    <div id="edit"><img class="icon" src="/icons/edit-icon.png"> </div>
+                    <div id="delete"><img class="icon" src="/icons/delete-icon.png"> </div>
+                </div>
+            </li>
+        `
+
+
+    const position = "afterbegin";
+
+
+    list.insertAdjacentHTML(position, entry)
+}

@@ -112,7 +112,7 @@ body {
 
 }
 
-.income {
+.income, .expense {
     display: flex;
     justify-content: space-between;
 }
